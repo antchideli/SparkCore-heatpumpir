@@ -11,8 +11,15 @@ Supported versions should be:
 * Panasonic E9/E12-DKE (Panasonic remote control P/N A75C2616)
 * Panasonic E9/E12-JKE and E9/E12-NKE
 
+## Hardware used
+Spark Core v2
+IR-Diode: TSAL6400, 940nm. ~1.35V@100mA
+Transistor: ST 2N1711 (a BC547 or similar could have been used just as well)
+Rd = ~18 Ohm
+Re = ~260 Ohm
+
 Instructions:
-==============
+==============d
 
 ```
 #include "PanasonicHeatpumpIR.h"
