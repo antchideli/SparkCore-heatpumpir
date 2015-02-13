@@ -56,10 +56,10 @@ PanasonicJKWHeatpumpIR::PanasonicJKWHeatpumpIR() : PanasonicHeatpumpIR()
 // Panasonic DKE/NKE/JKE numeric values to command bytes
 void PanasonicHeatpumpIR::send(IRSender& IR, byte powerModeCmd, byte operatingModeCmd, byte fanSpeedCmd, byte temperatureCmd, byte swingVCmd, byte swingHCmd)
 {
-    
+
     //LED signal
     digitalWrite(D7, HIGH);
-    
+
   // Sensible defaults for the heat pump mode
 
   byte operatingMode = PANASONIC_AIRCON2_TIMER_CNL;
@@ -184,8 +184,8 @@ void PanasonicHeatpumpIR::send(IRSender& IR, byte powerModeCmd, byte operatingMo
   }
 
   sendPanasonic(IR, operatingMode, fanSpeed, temperature, swingV, swingH);
-  
-  
+
+
    //LED signal
     digitalWrite(D7, LOW);
 }
@@ -205,7 +205,7 @@ void PanasonicHeatpumpIR::sendPanasonic(IRSender& IR, byte operatingMode, byte f
     // JKW, model 3 (Does not have VSwing)
     { 0x02, 0x20, 0xE0, 0x04, 0x00, 0x00, 0x00, 0x06, 0x02, 0x20, 0xE0, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0E, 0xE0, 0x00, 0x00, 0x81, 0x00, 0x00, 0x00 },
     //   0     1     2     3     4     5     6     7     8     9    10    11    12    13    14   15     16    17    18    19    20    21    22    23    24    25    26
-    
+
   };
 
   // Save some SRAM by only having one copy of the template on the SRAM
@@ -230,7 +230,7 @@ void PanasonicHeatpumpIR::sendPanasonic(IRSender& IR, byte operatingMode, byte f
   }
 
   panasonicTemplate[26] = checksum;
-  
+
 
   // 40 kHz PWM frequency
   IR.setFrequency(40);

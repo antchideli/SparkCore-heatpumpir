@@ -1,0 +1,7 @@
+{
+    "name": "SparkCore-heatpumpir",
+    "version": "0.0.1",
+    "author": "Antchideli",
+    "license": "GPL v2",
+    "description": "A Spark Core library to control split-unit Panasonic heatpumps over Infrared"
+}

@@ -63,7 +63,7 @@ class PanasonicHeatpumpIR : public HeatpumpIR
   protected: // Cannot create generic Panasonic heatpump instances
     PanasonicHeatpumpIR();
     byte _panasonicModel;  // Tells whether this is DKE, NKE or JKE (or other supported model...)
-    
+
 
   public:
     void send(IRSender& IR, byte powerModeCmd, byte operatingModeCmd, byte fanSpeedCmd, byte temperatureCmd, byte swingVCmd, byte swingHCmd);

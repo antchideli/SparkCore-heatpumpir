@@ -35,11 +35,11 @@ void IRSender::setFrequency(int frequency)
   // https://github.com/eflynch/sparkcoreiremitter/blob/master/ir_emitter/ir_emitter.ino
   // burstWait = round(1.0 / frequency * 1000.0 / 2.0 - 3.0); //40kHz=>9,5us
   burstWait = round(1.0 / frequency * 1000.0 / 2.0 - 3.0); //Timing was not 100%, testing....
-  
+
   // This is the total time of a period, in microseconds.
   // burstLength = round(1.0 / frequency * 1000.0); //40kHz=>25us
   burstLength = round(1.0 / frequency * 1000.0 + 1); //40kHz=>26us
-  
+
 
 }
 
@@ -80,18 +80,18 @@ byte IRSender::bitReverse(byte x)
 void IRSender::mark(int markLength)
 {
     noInterrupts();
-  
+
     while (markLength > 0) {
         digitalWrite(_pin, HIGH); // this takes about 3 microseconds to happen
         delayMicroseconds(burstWait);
         digitalWrite(_pin, LOW); // this also takes about 3 microseconds
         delayMicroseconds(burstWait);
- 
+
         markLength -= burstLength;
     }
-    
+
     interrupts();
-    
+
   // delayMicroseconds(markLength); //old
 }
 
@@ -103,6 +103,6 @@ void IRSender::space(int spaceLength)
     if (spaceLength > 3) {
         delayMicroseconds(spaceLength - 3);
     }
-    
+
     // delayMicroseconds(spaceLength); // Used in old version (Arduino)
 }
