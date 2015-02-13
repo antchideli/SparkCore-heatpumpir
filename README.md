@@ -18,11 +18,9 @@ Transistor: ST 2N1711 (a BC547 or similar could have been used just as well)
 Rd = ~18 Ohm
 Re = ~260 Ohm
 
-Instructions:
-==============d
-
+## Instructions:
 ```
-#include "PanasonicHeatpumpIR.h"
+#include "SparkCore-heatpumpir.h"
 //Defaults-
 #define DEFAULT_TEMP 20;
 #define DEFAULT_STATE POWER_ON;
